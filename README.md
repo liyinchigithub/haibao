@@ -1,5 +1,11 @@
 # 海报生成
 
+文字写入海报
+
+## 效果
+![image](https://github.com/user-attachments/assets/1bc99f52-5d9d-46bf-aedc-59b3177965c4)
+
+
 ## 版本
 python 3.8
 
@@ -19,5 +25,4 @@ source venv/bin/activate
 python3 app.py
 ```
 
-## 效果
-![image](https://github.com/zhengyuxiang123/PosterGenerator/blob/main/example.png)
+
