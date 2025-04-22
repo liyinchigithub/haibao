@@ -69,12 +69,17 @@ def generate():
                 print("Saving font to:", font_path)
                 font_file.save(font_path)
         
-        # 字体配置
+         # 字体配置
         font_size = int(request.form.get('size', 40))
-        font_color = tuple(map(int, request.form.get('color', '0,0,0').split(',')))
+        color_value = request.form.get('color', '#FFFFFF')  # 默认白色
+        if color_value.startswith('#') or len(color_value) == 6:  # 支持 #RRGGBB 和 RRGGBB 格式
+            hex_color = color_value.lstrip('#')
+            font_color = tuple(int(hex_color[i:i+2], 16) for i in (0, 2, 4))
+        else:
+            # 处理 R,G,B 格式
+            font_color = tuple(map(int, color_value.split(',')))
         position = (int(request.form.get('x', 20)), int(request.form.get('y', 20)))
         print("Font settings - size:", font_size, "color:", font_color, "position:", position)
-        
         # 加载字体
         try:
             if font_path:
